@@ -32,7 +32,8 @@ while(true) {
     let votoTot = 0;
     for(let i=0; i < valutazioni.length; i++) {
         let votoAttuale = arrv[i];
-        if(votoAttuale[2] == materia_attuale && votoAttuale[0] != "!") {
+        let regex = /(\d+.\d+)|\d+/;
+        if(votoAttuale[2] == materia_attuale && regex.test(votoAttuale[0])) {
             //console.log("V: " + votoAttuale[0] + " P: " + votoAttuale[1] + " M: " + votoAttuale[2]);
             //calcola media
             votoTot += votoAttuale[0]*votoAttuale[1]/100;
